@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+<servlet>
+<servlet-name>laptop-servlet</servlet-name>
+<servlet-class>com.rapid.LaptopServlet</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+<url-pattern>/laptops</url-pattern>
+<servlet-name>laptop-servlet</servlet-name>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>converter-servlet</servlet-name>
+<servlet-class>com.rapid.ConverterServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<url-pattern>/convert</url-pattern>
+<servlet-name>converter-servlet</servlet-name>
+</servlet-mapping>
+
+</web-app>

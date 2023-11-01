@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+
+<servlet>
+<servlet-name>laptopinput-servlet</servlet-name>
+<servlet-class>com.LaptopServletInput</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<url-pattern>/laptops</url-pattern>
+<servlet-name>laptopinput-servlet</servlet-name>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>converterinput-servlet</servlet-name>
+<servlet-class>com.ConverterServletInput</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<url-pattern>/convert</url-pattern>
+<servlet-name>converterinput-servlet</servlet-name>
+</servlet-mapping>
+
+</web-app>
