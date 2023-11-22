@@ -2,6 +2,7 @@ package com.doors;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +27,17 @@ public class DoorController {
 		ModelAndView mav = new ModelAndView("doorPage");
 		Door door = doorDao.getById(id);
 		mav.addObject("doorel", door);
-		
 		return mav;
 		
+	}
+	
+	@GetMapping("/doors")
+	public ModelAndView getAllDoors() throws SQLException, IOException {
+		
+		ModelAndView mav = new ModelAndView("doors");
+		
+		ArrayList<Door> doors = doorDao.getAllDoors();
+		mav.addObject("doors", doors);
+		return mav;
 	}
 }

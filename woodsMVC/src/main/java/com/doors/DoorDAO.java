@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DoorDAO {
 	
@@ -46,6 +47,23 @@ public int getNumberOfDoors() throws SQLException {
 		
 	DBHelper.closeConnection();
 		return total;
+	}
+
+	public ArrayList<Door> getAllDoors() throws SQLException, IOException {
+		Connection con = DBHelper.getConnection();
+		String query = "select * from doors";
+		PreparedStatement prepStmt = con.prepareStatement(query);
+		ResultSet res = prepStmt.executeQuery();
+		
+		ArrayList<Door> doors = new ArrayList<>();
+		
+		while(res.next()) {
+			Door door = new Door(res.getInt("id"), res.getString("material"), res.getDouble("height"), res.getDouble("width"), ((java.sql.Date) res.getObject("installationDate")).toLocalDate());
+			doors.add(door);
+		}		
+		
+		DBHelper.closeConnection();
+		return doors;		
 	}
 
 }
