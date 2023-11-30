@@ -36,6 +36,8 @@
 	
 	
 	</table>
+	
+	<a href="doors/create">Create a new door</a>
 
 </body>
 </html>

@@ -66,4 +66,16 @@ public int getNumberOfDoors() throws SQLException {
 		return doors;		
 	}
 
+	
+	public void insertDoor(Door door) throws SQLException, IOException {
+		Connection con = DBHelper.getConnection();
+		String query = "insert into doors (material, height, width, installationDate) values (?, ?, ?, ?)";
+		PreparedStatement prepStmt = con.prepareStatement(query);
+		
+		prepStmt.setString(1, door.getMaterial());
+		prepStmt.setDouble(2, door.getHeight());
+		prepStmt.setDouble(3, door.getWidth());
+		prepStmt.setDate(4, java.sql.Date.valueOf(door.getInstallationDate()));
+		prepStmt.executeUpdate();		
+	}
 }
